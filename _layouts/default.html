@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  {% seo %}
+  {% feed_meta %}
+</head>
+<body>
+  <header class="bar">
+    <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <nav aria-label="Site">
+      <a href="{{ '/' | relative_url }}">Notes</a>
+      <a href="https://github.com/nhaajtt" rel="noopener">GitHub</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </nav>
+  </header>
+  <main>
+    {{ content }}
+  </main>
+  <footer class="foot">
+    <p>Drawn by {{ site.author }}. Notes on reversing and security research. Only public, sanitized material appears here.</p>
+  </footer>
+</body>
+</html>

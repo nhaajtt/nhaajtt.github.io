@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<section class="intro">
+  <h1>Notes on taking binaries apart.</h1>
+  <p>Write-ups on unpacking, deobfuscation, format and protocol reversing, and vulnerability research on native code. Each note is a sanitized analysis: methods and findings, never live samples.</p>
+</section>
+
+<section class="notes" aria-label="Notes">
+  {% if site.posts.size > 0 %}
+  <ul>
+    {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        <span class="title">{{ post.title }}</span>
+        <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty">No notes yet. The first write-up will appear here, and the <a href="{{ '/feed.xml' | relative_url }}">RSS feed</a> will announce it.</p>
+  {% endif %}
+</section>

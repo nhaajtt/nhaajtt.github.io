@@ -1,0 +1,59 @@
+---
+---
+/* Cyanotype sheet: blue paper and white ink by default, white paper and blue ink when the reader prefers light. */
+@font-face { font-family: 'Sofia Sans'; font-weight: 300 700; font-display: swap; src: url('{{ "/assets/fonts/sofia-sans-300-700-latin.woff2" | relative_url }}') format('woff2'); }
+@font-face { font-family: 'Sofia Sans Extra Condensed'; font-weight: 500 900; font-display: swap; src: url('{{ "/assets/fonts/sofia-sans-extra-condensed-500-900-latin.woff2" | relative_url }}') format('woff2'); }
+
+:root {
+  --paper: #0d2f6b; --ink: #eaf1ff; --dim: rgb(234 241 255 / .72); --line: rgb(234 241 255 / .3); --faint: rgb(234 241 255 / .08); --sun: #f2d16b;
+  --display: 'Sofia Sans Extra Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --text: 'Sofia Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+@media (prefers-color-scheme: light) {
+  :root { --paper: #f4f7fb; --ink: #0d2f6b; --dim: rgb(13 47 107 / .76); --line: rgb(13 47 107 / .34); --faint: rgb(13 47 107 / .08); --sun: #e0ac1a; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--faint) 1px, transparent 1px), linear-gradient(90deg, var(--faint) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--ink); font-family: var(--text); font-size: 19px; line-height: 1.6;
+}
+a { color: inherit; text-decoration-color: var(--sun); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+:focus-visible { outline: 2px solid var(--sun); outline-offset: 3px; }
+
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px clamp(20px, 5vw, 72px); border-bottom: 1px solid var(--line); background: var(--paper); }
+.brand { font-family: var(--display); font-weight: 800; font-size: 30px; line-height: 1; text-decoration: none; }
+.bar nav { display: flex; gap: clamp(14px, 3vw, 32px); }
+.bar nav a { text-decoration: none; color: var(--dim); font-size: 16px; border-bottom: 1px solid transparent; }
+.bar nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+main { flex: 1; width: min(920px, 100% - 40px); margin: 0 auto; padding: clamp(48px, 9vw, 110px) 0; }
+h1 { font-family: var(--display); font-weight: 800; line-height: .95; font-size: clamp(3rem, 9vw, 6.2rem); margin: 0 0 24px; text-wrap: balance; }
+.intro p { max-width: 58ch; color: var(--dim); font-size: 1.2rem; margin: 0; }
+
+.notes { margin-top: clamp(48px, 8vw, 90px); border-top: 1px solid var(--line); }
+.notes ul { list-style: none; margin: 0; padding: 0; }
+.notes li a { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.notes li a:hover .title { text-decoration: underline; text-decoration-color: var(--sun); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.notes .title { font-family: var(--display); font-weight: 800; font-size: 1.9rem; line-height: 1.05; }
+.notes .date { color: var(--dim); font-size: 15px; white-space: nowrap; }
+.empty { color: var(--dim); padding-top: 22px; margin: 0; max-width: 60ch; }
+
+.post h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); }
+.meta { color: var(--dim); margin: 0 0 36px; }
+.prose { max-width: 68ch; }
+.prose h2, .prose h3 { font-family: var(--display); font-weight: 800; line-height: 1.05; margin: 2em 0 .5em; }
+.prose h2 { font-size: 2.2rem; }
+.prose pre { overflow-x: auto; padding: 16px; border: 1px solid var(--line); background: rgb(0 0 0 / .18); font-size: 15px; line-height: 1.5; }
+.prose code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; }
+.prose img { max-width: 100%; border: 1px solid var(--line); }
+.prose blockquote { margin: 1.5em 0; padding-left: 18px; border-left: 3px solid var(--sun); color: var(--dim); }
+
+.foot { padding: 28px clamp(20px, 5vw, 72px) 40px; border-top: 1px solid var(--line); background: var(--paper); }
+.foot p { margin: 0; color: var(--dim); font-size: 15px; max-width: 70ch; }
+
+@media (max-width: 560px) { .bar nav a:nth-child(2) { display: none; } .notes li a { flex-direction: column; gap: 4px; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }

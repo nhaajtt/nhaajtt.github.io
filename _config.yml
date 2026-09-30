@@ -1,0 +1,12 @@
+title: Nhaajt
+description: Reverse engineer and security researcher. Binary analysis, malware unpacking, exploit development.
+url: https://nhaajtt.github.io
+author: Nhaajt
+lang: en
+permalink: /:year/:month/:title/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+exclude:
+  - README.md
+  - LICENSE
